@@ -14,7 +14,7 @@
 //2
 
 /*
-SUBI NUM ÔNIBUS EM MARROCOS, 27
+SUBI NUM ÔNIBUS EM MIRROCOS, 27
 */
 
 // EXERCÍCIOS DE ESCRITA DE CÓDIGO
@@ -52,41 +52,21 @@ console.log(comidasFavoritas)
 
 // EXERCÍCIO 3
 
-//a
-
 let listaDeTarefas = []
-
-//b
 
 const primeiraTarefa = prompt("Insira uma tarefa que precisa ser realizada diariamente")
 const segundaTarefa = prompt("Insira outra tarefa que precisa ser realizada diariamente")
 const terceiraTarefa = prompt("Insira mais uma tarefa que precisa ser realizada diariameente")
 
-listaDeTarefas.push(primeiraTarefa, segundaTarefa, terceiraTarefa)
-
-
-//c
+listaDeTarefas.push(primeiraTarefa)
+listaDeTarefas.push(segundaTarefa)
+listaDeTarefas.push(terceiraTarefa)
 
 console.log("Lista de Tarefas diárias:", listaDeTarefas)
 
-//d
-
-const tarefaRealizada = Number(prompt("Qual dessas tarefas já foi realizada?: 0, 1 ou 2"))
-
-//e
-
-const listaDeTarefasAtualizada = listaDeTarefas.splice(tarefaRealizada, 1)
-
-//f
-console.log("Tarefas que ainda precisam ser realizadas", listaDeTarefasAtualizada)
-
-
-
-
-
-
-
-
+const tarefaRealizada = prompt("Qual dessas tarefas já foi realizada?: 0, 1 ou 2")
+listaDeTarefas.splice(Number(tarefaRealizada, 1))
+console.log("Tarefas que ainda precisam ser realizadas", listaDeTarefas)
 
 
 
