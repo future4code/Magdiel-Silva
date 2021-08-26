@@ -80,12 +80,13 @@ div img {
 }
 
 #container-de-descricao>p{
-    margin-left: 620px;
-    margin-right: 620px;
+    margin-left: 600px;
+    margin-right: 600px;
 }
 
 #container-de-descricao>ol {
     padding: 15px 0px;
+    margin-left:00px;
 }
 
 #container-para-comprar {
@@ -160,4 +161,7 @@ td button:hover {
 
 #back-button:hover {
     background-color: #635a3d
+}
+ol>li{
+    list-style-position: inside;
 }
