@@ -1,0 +1,148 @@
+/* ESTILOS GERAIS  */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* ESTILOS DA HOME */
+
+header {    
+    display: flex;
+    width: 100%
+}
+
+.home {
+    font-family: 'Roboto';
+    font-size: 60px;
+    font-weight: 700;
+    color:rgb(8, 61, 64);
+    margin: 20px;;
+    margin-left: 70px;
+    text-decoration: none;
+}
+
+.home:active{
+    color: rgb(4, 28, 29);
+}
+
+.home:hover{
+    text-decoration-line: underline;
+}
+
+.menu {
+    position: absolute;
+    right:30px;
+
+}
+
+.fonteMenu {
+    font-family:"Roboto";
+    font-size: 30px;
+    font-weight: 700;
+    margin: 20px;
+    text-decoration: none;
+    color:rgb(8, 61, 64);
+}
+
+h1 {
+    font-family: "Roboto";
+    font-size: 70px;
+    margin-left: 70px;
+    margin-right: 500px;
+    margin-top: 100px;
+    display: block;
+}
+
+section{
+    font-family: "Roboto";
+    font-size: 30px;
+    margin-left: 70px;
+    margin-right: 800px;
+    margin-top: 100px;
+    font-weight: 300;
+}
+
+table {
+    margin-left: 70px;
+    text-align: center;
+}
+
+.fonteTabela {
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight:300;
+    margin: 200px;
+    color:black;
+}
+
+.fonteBranco {
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight:10;
+    margin-right: 600px;
+    margin-left: 250px;
+    color:white;
+    display: block;
+}
+footer{
+    background-color: rgb(8, 61, 64);
+    height: 350px;
+}
+
+img{
+    width: 200px;
+    position: absolute;
+    left: 40px;
+    display: block;
+}
+
+
+/* ESTILOS DA SOBRE */
+
+p {
+    font-family: "Roboto";
+    font-size: 20px;
+    margin-left: 70px;
+    margin-right: 800px;
+    margin-top: 50px;
+    font-weight: 300;  
+    text-decoration: none;
+
+}
+
+
+/* ESTILOS DA PORTFOLIO */
+
+ol{
+    font-family: "Roboto";
+    font-size: 20px;
+    margin-left: 70px;
+    margin-right: 800px;
+    margin-top: 50px;
+    font-weight: 300;  
+    text-decoration: none;
+}
+
+
+/* ESTILOS CONTATO */
+
+form {
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight:300;
+    margin: 20px;
+    margin-left: 70px;
+}
+
+/* ESTILOS BLACKJACK */
+
+.imagemBlackJack {
+    width: 1000px;
+    margin-left: 70px;
+}
+/* ESTILOS LOJINHA */
+
+.imagemLojinha {
+    width: 1000px;
+    margin-left: 70px;
+}
