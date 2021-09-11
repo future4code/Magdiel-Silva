@@ -47,7 +47,6 @@ class Post extends React.Component {
     comentando: false,
     numeroComentarios: 0
   }
-//Não entendi o uso do booleano false no objeto estado. 
 
   onClickCurtida = () => {
     // console.log('Curtiu!')
@@ -79,7 +78,6 @@ class Post extends React.Component {
       numeroComentarios: this.state.numeroComentarios + 1 
     })
   }
-  //Não entendi o uso do booleano false no setState. 
 
   render() {
     let iconeCurtida
