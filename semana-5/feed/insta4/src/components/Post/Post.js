@@ -49,7 +49,6 @@ class Post extends React.Component {
   }
 
   onClickCurtida = () => {
-    // console.log('Curtiu!')
     this.setState({
       curtido: !this.state.curtido
     })
@@ -93,10 +92,6 @@ class Post extends React.Component {
     if(this.state.comentando) {
       componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
     }
-
-
-    //Não entendi da onde veio o "aoEnviar". 
-
 
     return <PostContainer>
       <PostHeader>

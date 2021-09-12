@@ -16,7 +16,7 @@ export class SecaoComentario extends Component {
 	state = {
 	valorInputComentario: ""
 	}
-
+	
 	onChangeComentario = (event) => {
 		this.setState({valorInputComentario: event.target.value})
 	}
