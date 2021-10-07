@@ -31,7 +31,6 @@ export const MatchesPage = (props) => {
         </StyledCard>
         </StyledMatchesList>
       <button onClick={props.matches}>Ir para home</button>
-      <button>Limpar Matches</button>
     </div>
   );
 };
