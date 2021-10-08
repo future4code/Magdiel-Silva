@@ -14,7 +14,7 @@ export const HomePage = (props) => {
   const pegarPerfil = () => {
     axios
       .get(
-        `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:${aluno}/person`
+        `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${aluno}/person`
       )
       .then((res) => {
         setPerfil(res.data.profile);
@@ -30,8 +30,11 @@ export const HomePage = (props) => {
     }
     axios
     .post(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${aluno}/choose-person`, body, headers)
-    .then(()=>{
+    .then((response)=>{
       pegarPerfil()
+      if (response.data.isMatch === true){
+        alert(`Deu Match! Você já pode conversar com ${perfil.name}`)
+      }
     })
     .catch((error)=>{
       alert(error)
@@ -54,7 +57,7 @@ export const HomePage = (props) => {
           </div>
         </StyledPerfil>
         </StyledCardMatches>
-        <StyledButton onClick={props.matchesList}>MATCHES</StyledButton>
+        <StyledButton onClick={props.matchesList}>matches❤</StyledButton>
     </StyledHome>
   );
 };

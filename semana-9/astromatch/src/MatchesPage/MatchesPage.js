@@ -8,6 +8,7 @@ import {
   StyledProfile,
   StyledHome,
   StyledButton,
+  StyledBottonHoover,
 } from "./Styled";
 
 const aluno = "magdiel-silva-maryam";
@@ -62,8 +63,8 @@ export const MatchesPage = (props) => {
       <StyledCard>
         <StyledMatchesList>{listMatches}</StyledMatchesList>
       </StyledCard>
-      <StyledButton onClick={props.matches}>VOLTAR</StyledButton>
-      <StyledButton onClick={limparMatches}>LIMPAR MATCHES</StyledButton>
+      <StyledButton onClick={props.matches}>voltar</StyledButton>
+      <StyledButton onClick={limparMatches}>limpar matches💔</StyledButton>
     </StyledHome>
   );
 };

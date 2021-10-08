@@ -13,10 +13,14 @@ export const StyledCard = styled.div`
   display: flex;
   justify-content: center;
   align-items:center;
+  border-radius: 100%;
+
 `;
 export const StyledMatchesList = styled.div`
+  padding-top: 10%;
+  padding-right:20%;
   font-family: "Roboto";
-  font-size: 1rem;  
+  font-size: 1.5rem;  
   display: grid;
   grid-template-columns: 1fr ;
   height:80vh;
@@ -27,7 +31,7 @@ export const StyledMatchesList = styled.div`
 export const StyledLogo = styled.div`
   font-family: "Satisfy", cursive;
   color:white;
-  font-size: 4rem;
+  font-size: 4.5rem;
   margin-top:2vh;
   display: flex;
   justify-content: center;
@@ -37,17 +41,27 @@ export const StyledLogo = styled.div`
 export const StyledProfileImage = styled.img`
   max-height: 100px;
   max-width: 100px;
-  border-radius:10%;
-  padding:10px
+  padding-left: 20%;
 `
 export const StyledProfile = styled.div`
   display: flex;
   justify-content: space-between;
 `
 export const StyledButton = styled.button`
-    background-color: #800080;
-    color: white;
-    width: 10vw;
-    margin: 10px;
+  background-color: #4DABE9;
+  font-family: "Satisfy", cursive;
+  color:white;
+  font-size: 1.5rem;
+  width: 10vw;
+  margin: 10px;
+  padding: 5px;
+  transition: 0.5s;
+  border-radius: 10px;
+  text-decoration: none;
 
 `
+
+  
+    
+         
+          
