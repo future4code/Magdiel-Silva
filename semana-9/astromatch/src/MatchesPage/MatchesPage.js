@@ -1,36 +1,69 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import {
+  StyledMatchesList,
+  StyledCard,
+  StyledProfileImage,
+  StyledLogo,
+  StyledProfile,
+  StyledHome,
+  StyledButton,
+} from "./Styled";
 
-const StyledMatchesList = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  border: 1px solid black;
-  height: 80vh;
-  width: 25vw;
-`;
-
-const StyledCard = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  border:1px solid black;
-  height: 20vh;
-  width: 20vw;
-`;
+const aluno = "magdiel-silva-maryam";
 
 export const MatchesPage = (props) => {
+  const [matchesList, setMatchesList] = useState([]);
+
+  useEffect(() => {
+    getMatches();
+  }, []);
+
+  const getMatches = () => {
+    axios
+      .get(
+        `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${aluno}/matches`
+      )
+      .then((response) => {
+        setMatchesList(response.data.matches);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  };
+
+  const listMatches = matchesList.map((match) => {
+    return (
+      <StyledProfile>
+        <StyledProfileImage src={match.photo} />
+        <p>{match.name}</p>
+      </StyledProfile>
+    );
+  });
+
+  const limparMatches = () => {
+    alert("Esse botão vai limpar os matches!");
+    axios
+      .put(
+        `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${aluno}/clear`
+      )
+      .then((response) => {
+        alert(response.data.message);
+        getMatches();
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  };
+
   return (
-    <div>
-      <StyledMatchesList>
-        MatchesPage
-        <StyledCard>
-          Nome Pessoa
-        </StyledCard>
-        </StyledMatchesList>
-      <button onClick={props.matches}>Ir para home</button>
-    </div>
+    <StyledHome>
+      <StyledLogo>astro match</StyledLogo>
+      <StyledCard>
+        <StyledMatchesList>{listMatches}</StyledMatchesList>
+      </StyledCard>
+      <StyledButton onClick={props.matches}>VOLTAR</StyledButton>
+      <StyledButton onClick={limparMatches}>LIMPAR MATCHES</StyledButton>
+    </StyledHome>
   );
 };

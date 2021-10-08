@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { StyledCardMatches, StyledPerfil, StyledProfileImage, StyledLogo } from "./Styled";
+import { StyledCardMatches, StyledPerfil, StyledProfileImage, StyledLogo, StyledButton, StyledHome } from "./Styled";
 
 const aluno = "magdiel-silva-maryam";
 
@@ -21,8 +21,24 @@ export const HomePage = (props) => {
       })
       .catch((error) => alert(error.response));
   };
+
+  const clickMatch = (perfilId, choiceId) => {
+    const headers = "Content-Type: application/json"
+    const body = {
+      "id": perfilId,
+      "choice":choiceId
+    }
+    axios
+    .post(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${aluno}/choose-person`, body, headers)
+    .then(()=>{
+      pegarPerfil()
+    })
+    .catch((error)=>{
+      alert(error)
+    })
+  }
   return (
-    <div>
+    <StyledHome>
         <StyledLogo>
         astro match
         </StyledLogo>
@@ -33,12 +49,12 @@ export const HomePage = (props) => {
           <p>Idade: {perfil.age} anos</p>
           <p>{perfil.bio} </p>
           <div>
-            <button>💖</button>
-            <button>❌</button>
+            <button onClick={() => clickMatch (perfil.id, true)}>💚</button>
+            <button onClick={() => clickMatch(perfil.id, false)}>❌</button>
           </div>
         </StyledPerfil>
-      </StyledCardMatches>
-      <button onClick={props.matchesList}>Ir para Matches</button>
-    </div>
+        </StyledCardMatches>
+        <StyledButton onClick={props.matchesList}>MATCHES</StyledButton>
+    </StyledHome>
   );
 };

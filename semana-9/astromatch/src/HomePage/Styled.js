@@ -1,29 +1,52 @@
 import styled from "styled-components";
 
 export const StyledCardMatches = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`
+  font-family: "Roboto";
+  font-size: 1rem;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2vw;
+`;
 export const StyledLogo = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`
-export const StyledPerfil = styled.div `
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid black;
-    height: 80vh;
-    width: 25vw;
-    padding: 20px;
-    margin: 20px;
-
-`
+  margin-top: 2vw;
+  font-family: "Satisfy", cursive;
+  color:white;
+  font-size: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const StyledPerfil = styled.div`
+  font-family: "Roboto";
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5%;
+  background-color: #ffffff90;
+  height: 90vh;
+  width: 25vw;
+  padding: 20px;
+  margin: 20px;
+`;
 export const StyledProfileImage = styled.img`
+  margin-top: 5vh;
   max-height: 40vh;
   max-width: 25vw;
-  border: 10px solid black;
+  border-radius: 10%;
+`;
+export const StyledButton = styled.button`
+  background-color: #5f01f790;
+  margin: 10px;
+  color: white;
+  width: 10vw;
+`;
+export const StyledHome = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
