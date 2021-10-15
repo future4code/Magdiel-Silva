@@ -15,10 +15,7 @@ export const Container = styled.div`
 `;
 export const Header = styled.div`
   text-align: center;
-  height: 15vh;
-  width: 100vw;
-  background-color: black;
-  color: white;
+  color: black;
 `;
 
 //---------- styled HomePage

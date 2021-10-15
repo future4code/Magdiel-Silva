@@ -1,6 +1,5 @@
 import React from "react";
 import { Header, CardStyle, ContainerCard } from "./Styled";
-import { TripDetailsPage } from "./TripDetailsPage";
 import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -36,13 +35,6 @@ export const AdminHomePage = () => {
   const goToCreateTrip = () => {
     history.push("/admin/trips/create");
   };
-
-  const FuncaoId = () => {
-      return (
-      <div>
-    <TripDetailsPage id={trips.id}/>
-    </div>)
-  }
 
   //FAZER FUNÇÃO/BOTÃO PARA LOGOUT
   //FAZER FUNÇÃO/BOTÃO PARA EXCLUIR VIAGEM

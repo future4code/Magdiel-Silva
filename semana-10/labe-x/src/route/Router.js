@@ -14,7 +14,7 @@ export const Router = () => {
         <Route exact path={"/admin/trips/list"}>
           <AdminHomePage />
         </Route>
-        <Route exact path={"/trips/application"}>
+        <Route exact path={"/trips/application/:id"}>
           <ApplicationFormPage />
         </Route>
         <Route exact path={"/admin/trips/create"}>
