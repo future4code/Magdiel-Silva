@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 const StyleText = styled.div`
+  font-family: "Roboto";
   margin-top: 15%;
   margin-left: 25%;
   color: white;
@@ -71,7 +72,7 @@ export default class App extends React.Component {
         <StyleText>
         <h1>
           Descubra quantas pessoas no Brasil tiveram o mesmo nome que você desde
-          1930 até 2010
+          1930 até 2010.
         </h1>
         <input
           placeholder="Insira o seu nome"
