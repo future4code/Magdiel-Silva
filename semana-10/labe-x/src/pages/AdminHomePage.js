@@ -1,5 +1,6 @@
 import React from "react";
-import { Header, CardStyle, ContainerCard } from "./Styled";
+import { Header, CardStyle, ContainerCard, Container, ButtonContainer } from "./Styled";
+import {Button} from "@material-ui/core"
 import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -35,38 +36,49 @@ export const AdminHomePage = () => {
   const goToCreateTrip = () => {
     history.push("/admin/trips/create");
   };
-
-  //FAZER FUNÇÃO/BOTÃO PARA LOGOUT
-  //FAZER FUNÇÃO/BOTÃO PARA EXCLUIR VIAGEM
-
   const renderizaViagem = trips.map((trip) => {
     const goToTripDetails = () => {
       history.push(`/admin/trips/${trip.id}`);
-    };
+    }
+    const DeleteTrip = () => {
+      const token = localStorage.getItem("token");
+      const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/magdiel-silva-maryam/trips/${trip.id}`
+      axios.delete(url, {
+        headers: {
+          auth: token,
+        }})
+      .then((res)=>{
+        alert("Viagem excluída com sucesso", res)
+      })
+    }
+
+
     return (
       <div key={trip.id}>
         <CardStyle>
-          <h3>{trip.name}</h3>
-          <p>descrição: {trip.description}</p>
-          <p> duração: {trip.durationInDays} dias</p>
-          <p> Data: {trip.date} </p>
-          <p>Planeta de destino: {trip.planet}</p>
-          <button onClick={goToTripDetails}>DETALHES</button>{" "}
-          <button>EXCLUIR VIAGEM</button>
+          <h3><b>{trip.name}</b></h3>
+          <p><b>descrição:</b> {trip.description}</p>
+          <p><b> duração:</b> {trip.durationInDays} dias</p>
+          <p><b> Data:</b> {trip.date} </p>
+          <p><b>Planeta de destino:</b> {trip.planet}</p>
+          <ButtonContainer>
+          <Button variant={"contained"} onClick={goToTripDetails}>DETALHES</Button>{" "}
+          <Button variant={"contained"} color={"primary"} onClick={DeleteTrip}>EXCLUIR VIAGEM</Button>
+          </ButtonContainer>
         </CardStyle>
       </div>
     );
   });
   return (
-    <div>
+    <Container>
       <Header>
-        <h1>Perfil Administrador</h1>
+        <h3>Perfil Administrador</h3>
       </Header>
-      <button onClick={goBack}>VOLTAR</button>
-      <button onClick={goToCreateTrip}>CRIAR NOVA VIAGEM</button>
-      <button>LOGOUT</button>
-      <button>EXCLUIR</button>
+      <ButtonContainer>
+      <Button variant={"contained"}  onClick={goBack}>VOLTAR</Button>
+      <Button variant={"contained"}  onClick={goToCreateTrip}>CRIAR NOVA VIAGEM</Button>
+      </ButtonContainer>
       <ContainerCard>{renderizaViagem}</ContainerCard>
-    </div>
+    </Container>
   );
 };

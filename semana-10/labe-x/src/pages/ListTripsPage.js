@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {ContainerCard, Header, CardStyle} from "./Styled"
+import {ContainerCard, Header, CardStyle, Container} from "./Styled"
+import { Button } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
@@ -37,7 +38,7 @@ export const ListTripsPage = () => {
           <p> duração: {trip.durationInDays} dias</p>
           <p> Data: {trip.date} </p>
           <p>Planeta de destino: {trip.planet}</p>
-          <button onClick={goToApplicationForm}>CANDIDATE-SE</button>{" "}
+          <Button variant={"contained"} color={"primary"} onClick={goToApplicationForm}>CANDIDATE-SE</Button>{" "}
         </CardStyle>
       </div>
 
@@ -45,14 +46,14 @@ export const ListTripsPage = () => {
     })
 
     return(
-        <div>
+        <Container>
             <Header>
             <h1>Nossas viagens</h1>
             </Header>
+            <Button variant={"contained"}  onClick={goBack}>VOLTAR</Button>
             <ContainerCard>
                 {renderizaViagem}
             </ContainerCard>
-            <button onClick={goBack}>VOLTAR</button>
-        </div>
+        </Container>
     )
 }

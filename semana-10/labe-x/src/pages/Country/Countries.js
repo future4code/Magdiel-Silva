@@ -2,7 +2,7 @@ import React from "react";
 import { ApplicationFormPage } from "../ApplicationFormPage";
 
 
-export const CountriesList = () => {
+ const CountriesList = () => {
     const countries = ["Afghanistan",
     "Albania",
     "Algeria",
@@ -210,7 +210,9 @@ export const CountriesList = () => {
     "Zimbabwe"]
     return (
         <div>
-            <ApplicationFormPage lista={countries}/>
+            <ApplicationFormPage lista={CountriesList}/>
         </div>
     )
 }
+
+export default CountriesList;

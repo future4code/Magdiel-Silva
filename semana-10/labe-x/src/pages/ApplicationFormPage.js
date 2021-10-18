@@ -1,18 +1,18 @@
 import React from "react";
-import { Header } from "./Styled";
+import { Header, Container, StyledInput, ButtonContainer } from "./Styled";
 import { useHistory, useParams } from "react-router-dom";
 import { useState } from "react";
+import { Button, TextField} from "@material-ui/core";
 import axios from "axios";
 
-export const ApplicationFormPage = (props) => {
-    console.log(props)
+export const ApplicationFormPage = () => {
     
     const [name, setName] = useState("")
     const [age, setAge] = useState("")
     const [applicationText, setApplicationText] = useState("")
     const [profession, setProfession] = useState("")
-    const [country, setCountry] = useState([props.lista])
-//arrumar o country 
+    const [country, setCountry] = useState([])
+
     const onChangeName = (event) => {
         setName(event.target.value)
     } 
@@ -31,7 +31,6 @@ export const ApplicationFormPage = (props) => {
 
     const history = useHistory()
     const params = useParams();
-
 
     const apply = () => {
         const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/magdiel-silva-maryam/trips/${params.id}/apply`
@@ -54,41 +53,56 @@ export const ApplicationFormPage = (props) => {
     const goBack = () => {
         history.goBack()
     }
-    //FAZER A FUNÇÃO PARA ENVIAR AS REQUISIÇÕES
     return(
-        <div>
+        <Container>
             <Header>
             <h1>Candidate-se</h1>
+            <h3> Inscreva-se para uma viagem inesquecível </h3>
             </Header>
-            <h2> INSCREVA-SE PARA UMA AVENTURA INESQUECÍVEL </h2>
-            <input 
-            placeholder="Nome:"
+            <StyledInput>
+            <TextField 
+            label={"Nome:"}
             value={name}
             onChange={onChangeName}
+            required
             />
-            <input 
-            placeholder="Idade:"
+            <TextField 
+            label={"Idade:"}
             value={age}
             onChange={onChangeAge}
+            required
             />
-            <input 
-            placeholder="Texto de candidatura:"
+            <TextField 
+            label={"Texto de candidatura:"}
+            helperText="Diga por que você é um bom candidato"
             value={applicationText}
             onChange={onChangeApplicationText}
+            required
             />
-            <input 
-            placeholder="Profissão:"
+            <TextField 
+            label={"Profissão:"}
             value={profession}
             onChange={onChangeProfession}
+            required
             />
-            <select>
-                <option>PAÍS 1</option>
-                <option>PAÍS 2</option>
-                <option>PAÍS 3</option>
-                <option>PAÍS 4</option>
-            </select>
-            <button onClick={goBack}> VOLTAR </button>
-            <button onClick={apply}> ENVIAR </button>
-        </div>
+            <select value={country} onChange={onChangeCountry}>
+            <option>Brasil</option>
+            <option>Estados Unidos</option>
+            <option>Argentina</option>
+            <option>Uruguai</option>
+            <option>Chile</option>
+            <option>Espanha</option>
+            <option>França</option>
+            <option>Outros</option>
+          </select>
+            </StyledInput>
+            <br/>
+            <div>
+            <ButtonContainer>
+            <Button variant={"contained"} onClick={goBack}> VOLTAR </Button>
+            <Button variant={"contained"} color={"primary"} onClick={apply}> ENVIAR </Button>
+            </ButtonContainer>
+            </div>
+        </Container>
     )
 }

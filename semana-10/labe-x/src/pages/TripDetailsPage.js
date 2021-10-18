@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Header, CardStyle, ContainerCard } from "./Styled";
+import { Header, CardStyle, Container } from "./Styled";
+import {Button} from "@material-ui/core"
 import { useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 
@@ -15,7 +16,7 @@ export const TripDetailsPage = () => {
     if (token === null) {
       history.push("/login");
     }
-  }, []);
+  }, [history]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -32,9 +33,9 @@ export const TripDetailsPage = () => {
         setCandidates(res.data.trip.candidates);
       })
       .catch((error) => {
-        console.log(error.response);
+        alert(error.response);
       });
-  }, []);
+  }, [params.id]);
 
   const goBack = () => {
     history.goBack();
@@ -61,6 +62,24 @@ export const TripDetailsPage = () => {
     );
   };
   const renderizaCandidatos = candidates.map((candidates) => {
+    const aprovarCandidate = () => {
+      const token = localStorage.getItem("token");
+      const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/magdiel-silva-maryam/trips/${params.id}/candidates/${candidates.id}/decide`
+      const body={
+        approve: true
+      }
+      axios.put(url, body, {
+        headers: {
+          auth: token,
+        },
+      })
+      .then((res)=> {
+        alert("Candidato aprovado com sucesso!", res)
+      })
+      .catch((error)=> {
+        alert("Erro na requisição!", error)
+      })
+    }
     return (
       <div key={candidates.name}>
         <CardStyle>
@@ -79,7 +98,7 @@ export const TripDetailsPage = () => {
           <p>
             <b>Motivação:</b> {candidates.applicationText}
           </p>
-          <button>Aprovar candidato!</button>
+          <Button variant={"contained"} color={"primary"} onClick={aprovarCandidate}>Aprovar candidato!</Button>
         </CardStyle>
 
       </div>
@@ -87,16 +106,17 @@ export const TripDetailsPage = () => {
   });
 
   return (
-    <div>
+    <Container>
       <Header>
         <h1>Detalhes da viagem</h1>
       </Header>
-      <ContainerCard>{renderizaDetalhes()}</ContainerCard>
-      <ContainerCard>
-      <h2>Lista de candidatos:</h2>
-          {renderizaCandidatos}
-    </ContainerCard>
-      <button onClick={goBack}>VOLTAR</button>
-    </div>
+      <Button variant={"contained"} color={"primary"} onClick={goBack}>VOLTAR</Button>
+      <br/>
+      {renderizaDetalhes()}
+      <Header>
+        <h3>Candidatos inscritos </h3>
+      </Header>
+      {renderizaCandidatos}
+    </Container>
   );
 };
