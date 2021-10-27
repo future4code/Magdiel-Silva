@@ -1,19 +1,22 @@
 import { Button } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router";
-import {  goToFeedPage } from "../../router/coordinator";
 import { TextField } from "@mui/material";
 import {  StyledInput } from "./styled";
 import useForm from "../../hooks/useForm";
+import {login} from "../../services/users";
+import { GlobalStateContext } from "../../GlobalState/GlobalStateContext";
+
 
 const LoginForm = () => {
-  const history = useHistory();
-  const [form, onChange, clear] = useForm({ email: "", password: "" });
-  
+  const history = useHistory()
+  const [form, onChange, clear] = useForm({ email: "", password: "" })
+  const {states, seters} = useContext(GlobalStateContext)
+
   const onSubmitForm = (event) => {
     event.preventDefault()
-  };
-
+    login(form, clear, history, seters.setRightButtonText)
+  }
   return (
       <StyledInput>
         <form onSubmit={onSubmitForm}>
@@ -40,8 +43,7 @@ const LoginForm = () => {
             type={"password"}
           />
           <Button
-        typo={"submit"}
-        onClick={() => goToFeedPage(history)}
+        type={"submit"}
         variant={"contained"}
         color={"primary"}
         fullWidth

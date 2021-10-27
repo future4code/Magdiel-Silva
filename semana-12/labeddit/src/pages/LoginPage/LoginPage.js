@@ -5,8 +5,10 @@ import { goToSingUpPage } from "../../router/coordinator";
 import LoginImage from "../../assets/LoginImage.png";
 import { StyledLoginPage, ContainerImage, } from "./styled";
 import LoginForm from "./LoginForm";
+import useUnprotectedPage from "../../hooks/useUnprotectedPage";
 
 const LoginPage = () => {
+  useUnprotectedPage()
   const history = useHistory();
   
   return (
