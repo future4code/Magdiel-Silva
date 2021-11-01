@@ -12,7 +12,9 @@ const FeedPage = () => {
 
     const postFeed = feedPosts.map((post)=>{
         return(
-            <PostCard name ={post.body}/>
+            <div>
+            <PostCard body ={post.body}/>
+            </div>
         )
     })
     return(

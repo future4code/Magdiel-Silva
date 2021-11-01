@@ -5,7 +5,6 @@ export const ContainerPostCard = styled.div`
     align-items: center;
     justify-content: center;
     width: 30vw;
-    height: 30px;
+    height: 05vh;
     border:1px solid black;
-
 `
