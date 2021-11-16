@@ -1,0 +1,13 @@
+{
+  "name": "node_e_package.json",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "exercicio1": "clear && node ./exercicio1.js",
+    "exercicio2": "clear && node ./exercicio2.js",
+    "exercicio3": "clear && node ./exercicio3.js",
+    "exercicio4":  "clear && node ./exercicio4.js"
+  },
+  "author": "Magdiel Silva",
+  "license": "ISC"
+}
