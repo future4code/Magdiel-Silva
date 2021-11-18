@@ -1,7 +1,7 @@
 // EXERCÍCIO 1
 // A)
 let minhaString:string = "Magdiel"
-minhaString = 8
+// minhaString = 8
 // minhaString é uma variável declarada como string, por essa razão
 // encontramos um erro quando atribuimos o number 8
 
