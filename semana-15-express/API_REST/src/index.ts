@@ -34,7 +34,7 @@ app.get("/users/:type", (req: Request, res: Response) => {
         return user.type === type;
       });
       res.status(200).send(userType);
-    } else{
+    } else {
       throw new Error("Type não encontrado");
     }
   } catch (error: any) {
@@ -43,6 +43,8 @@ app.get("/users/:type", (req: Request, res: Response) => {
 });
 
 //A)
+
+
 //B)
 
 app.get("/users", (req: Request, res: Response) => {
