@@ -1,12 +1,16 @@
-import { connection } from "./connection"
+import { connection } from "./connection";
 // import users from "./users.json"
-import {getAddressInfo}  from "..//services/getAddressInfo"
+import { getAddressInfo } from "..//services/getAddressInfo";
 
-const printError = (error: any) => { console.log(error.sqlMessage || error.message) }
+const printError = (error: any) => {
+  console.log(error.sqlMessage || error.message);
+};
 
-const createTables = async () => await connection.raw(`
-    
-      CREATE TABLE IF NOT EXISTS tabela1 (
+const createTables = async () =>
+  await connection
+    .raw(
+      `
+      CREATE TABLE IF NOT EXISTS aula51_address (
          cep VARCHAR(255) PRIMARY KEY NOT NULL,
          logradouro VARCHAR(255) NOT NULL,
          numero INT NOT NULL,
@@ -15,25 +19,35 @@ const createTables = async () => await connection.raw(`
          cidade VARCHAR(255) NOT NULL,
          estado VARCHAR(255) NOT NULL
       );
-   `)
+   `
+    )
 
-   .then(() => { console.log("Tabelas criadas") })
-   .catch(printError)
+    .then(() => {
+      console.log("Tabelas criadas");
+    })
+    .catch(printError);
 
 // const insertUsers = () => connection("aula51_users")
 //    .insert(users)
 //    .then(() => { console.log("Usuários criados") })
 //    .catch(printError)
 
-// EXERCÍCIO 3 
+// EXERCÍCIO 3
 
-const insertAddressInfo = async () => await connection("tabela1")
-         .insert(async ()=>{
-            const result = await getAddressInfo("06310320", 400, "casa")
-            console.log(result)
-            return result
-         })
-         .catch(printError)
+// const insertAddressInfo = async () => await connection("tabela1")
+//          .insert(async ()=>{
+//             const result = await getAddressInfo("06310320", 400, "casa")
+//             console.log(result)
+//             return result
+//          })
+//          .catch(printError)
+
+const insertAddressInfo = async () => {
+   const address = await getAddressInfo("06310320", 400, "casa");
+   await connection("aula51_address")
+   .insert(address)
+   .catch(printError);
+};
 
 // const insertAddressInfoRaw = async () => {
 
@@ -44,24 +58,24 @@ const insertAddressInfo = async () => await connection("tabela1")
 //    cep,
 //    logradouro,
 //    numero,
-//    complemento, 
-//    bairro, 
+//    complemento,
+//    bairro,
 //    cidade,
 //    estado)
 
-//    VALUES 
-//    ('${result.cep}', 
+//    VALUES
+//    ('${result.cep}',
 //    '${result.logradouro}',
-//     '${result.numero}', 
+//     '${result.numero}',
 //     '${result.complemento}',
 //     '${result.bairro}',
 //     '${result.cidade}',
 //      '${result.estado}');
 //    `)
-// } 
+// }
 
+const closeConnection = () => { connection.destroy() }
 
 createTables()
-   .then(()=>{
-      insertAddressInfo()
-   })
+   .then(insertAddressInfo)
+   .finally(closeConnection)
