@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "migrations": "tsnd ./src/migrations.ts",
     "start": "tsc && node ./build/index.js",
     "dev-start": "ts-node-dev ./src/index.ts"
   },
