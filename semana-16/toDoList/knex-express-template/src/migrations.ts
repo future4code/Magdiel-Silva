@@ -6,29 +6,30 @@ const printError = (error:any) => {
 
 const createTables = () => connection.raw (`
 
-    CREATE TABLE TodoListUser (
+    CREATE TABLE  ToDoListUser (
         id VARCHAR(255) PRIMARY KEY, 
         name VARCHAR(255) NULL, 
         nickname VARCHAR(255) UNIQUE NOT NULL, 
         email VARCHAR(255) UNIQUE NOT NULL
 );
 
-    CREATE TABLE TodoListTask (
+    CREATE TABLE ToDoListTask (
 		id VARCHAR(255) PRIMARY KEY, 
         title VARCHAR(255) NOT NULL, 
         description TEXT NOT NULL, 
         status VARCHAR(255) NOT NULL DEFAULT "to_do",
         limit_date DATE NOT NULL,
-        creator_user_id varchar(255) NOT NULL,
-        FOREIGN KEY (creator_user_id) REFERENCES TodoListUser(id)
+        creator_user_id VARCHAR(255) NOT NULL,
+        FOREIGN KEY (creator_user_id) REFERENCES ToDoListUser(id)
 );
 
-    CREATE TABLE TodoListResponsibleUserTaskRelation (
+    CREATE TABLE ToDoListResponsibleUserTaskRelation (
         task_id VARCHAR(255),
         responsible_user_id VARCHAR(255),
-        FOREIGN KEY (task_id) REFERENCES TodoListTask(id),
-        FOREIGN KEY (responsible_user_id) REFERENCES TodoListUser(id)
-);
+        PRIMARY KEY (task_id, responsible_user_id),
+        FOREIGN KEY (task_id) REFERENCES ToDoListTask(id),
+        FOREIGN KEY (responsible_user_id) REFERENCES ToDoListUser(id)
+);  
 
 `)
 .then(()=>{
