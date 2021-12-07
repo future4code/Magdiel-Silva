@@ -105,3 +105,12 @@ myAccount.setTransactions(pagamento)
 console.log(myAccount)
 
 // EXERCÍCIO 3
+
+class Bank {
+  private accounts: UserAccount[];
+
+  constructor(accounts: UserAccount[]) {
+    this.accounts = accounts;
+  }
+
+}
