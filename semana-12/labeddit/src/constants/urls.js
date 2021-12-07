@@ -1,0 +1,3 @@
+export const BASE_URL = "https://labeddit.herokuapp.com"
+
+export const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVkNDRhOTdkLWI0MGQtNGI5OS04YzkwLWEwZGVhMWFkZGMzYiIsInJvbGUiOiJHVUVTVCIsImlhdCI6MTYzNTI2Nzc5MSwiZXhwIjoxNjM1MzEwOTkxfQ.HsmXn2-tS6UAjUC3CayhOH5Dp3kQkV4pmsRGgZcuPIg"

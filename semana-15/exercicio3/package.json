@@ -1,0 +1,11 @@
+{
+  "name": "exercicio3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start":"clear && node ./index.js"
+  },
+  "author": "Magdiel Silva",
+  "license": "ISC"
+}
