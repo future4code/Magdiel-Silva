@@ -1,13 +1,15 @@
 import * as jwt from "jsonwebtoken";
+import { USER_ROLES } from "../entities/User";
 
 export interface AuthenticationData {
-    id: string
+    id: string,
+    role:USER_ROLES
 }
 
 export class Authenticator {
     public generate = (input: AuthenticationData):string => {
-        const token = jwt.sign(input, process.env.KWT_KEY as string, {
-            expiresIn:process.env.ACCESS_TOKEN_EXPIRES_IN
+        const token = jwt.sign(input, process.env.JWT_KEY as string, {
+            expiresIn: process.env.ACCESS_TOKEN_EXPIRES_IN
         });
         return token
     }

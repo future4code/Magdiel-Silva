@@ -17,5 +17,32 @@ export class UserDataBase extends BaseDataBase{
         }
 
     }
+    public findUserByEmail = async (email: string): Promise<User> => {
+        try {
+         const user = await BaseDataBase.connection("cookenu_users")
+         .select("*")
+         .where({email})
+         return user[0] && User.toUserModel(user[0])
+            
+        } catch (error:any) {
+            throw new Error(error.message || error.sqlMessage)
+        }
+    }
+    public getAllUsers = async():Promise<User[]> => {
+       try {
+        const users = await BaseDataBase.connection("cookenu_users")
+        .select(
+            "id",
+            "name",
+            "email"
+        )
+        return users.map((user => User.toUserModel(user)))
+           
+       } catch (error:any) {
+        throw new Error(error.message || error.sqlMessage)
+       }
+    }
+
+
 
 }
