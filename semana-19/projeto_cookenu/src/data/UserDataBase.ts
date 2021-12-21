@@ -1,5 +1,7 @@
 import { User } from "../entities/User";
+import { AuthenticationData } from "../services/Authenticator";
 import { BaseDataBase } from "./BaseDataBase";
+
 
 export class UserDataBase extends BaseDataBase{
     public createUser = async (user:User) => {
@@ -28,15 +30,17 @@ export class UserDataBase extends BaseDataBase{
             throw new Error(error.message || error.sqlMessage)
         }
     }
-    public getAllUsers = async():Promise<User[]> => {
+    public getUser = async(id:AuthenticationData):Promise<User[]> => {
        try {
-        const users = await BaseDataBase.connection("cookenu_users")
+        const user = await BaseDataBase.connection("cookenu_users")
         .select(
             "id",
             "name",
             "email"
         )
-        return users.map((user => User.toUserModel(user)))
+        .where({id:id.id})
+
+        return user.map((user => User.toUserModel(user)))
            
        } catch (error:any) {
         throw new Error(error.message || error.sqlMessage)
