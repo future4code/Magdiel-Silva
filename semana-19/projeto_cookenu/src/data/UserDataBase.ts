@@ -11,7 +11,6 @@ export class UserDataBase extends BaseDataBase{
                 email: user.getEmail(),
                 password: user.getPassword()
             })
-
             
         } catch (error:any) {
             throw new Error(error.message || error.sqlMessage)
