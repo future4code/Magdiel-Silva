@@ -5,7 +5,7 @@ import { Authenticator } from "../services/Authenticator"
 export const getMyProfile = async (req:Request, res:Response) => {
 
     try {
-        //validar a entrada do token e email
+        //validar a entrada do token no headers
         const token = req.headers.authorization as any
         const resultToken = new Authenticator().getTokenData(token)
 
@@ -16,7 +16,7 @@ export const getMyProfile = async (req:Request, res:Response) => {
         res.status(200).send(user)
 
     } catch (error:any) {
-        res.status(400) .send(error.message || error.sqlMessage)
+        res.status(400).send(error.message || error.sqlMessage)
 
     }
     
