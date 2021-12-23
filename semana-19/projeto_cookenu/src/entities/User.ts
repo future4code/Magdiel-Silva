@@ -2,7 +2,6 @@ export enum USER_ROLES {
     NORMAL = "NORMAL",
     ADMIN = "ADMIN"
 }
-
 export class User {
     constructor(
         private id: string,

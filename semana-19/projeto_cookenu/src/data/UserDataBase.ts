@@ -3,7 +3,7 @@ import { AuthenticationData } from "../services/Authenticator";
 import { BaseDataBase } from "./BaseDataBase";
 
 
-export class UserDataBase extends BaseDataBase{
+export class UserDataBase extends BaseDataBase {
     public createUser = async (user:User) => {
         try {
             await BaseDataBase.connection("cookenu_users")
