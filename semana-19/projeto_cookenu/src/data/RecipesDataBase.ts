@@ -15,4 +15,27 @@ export class RecipesDataBase extends BaseDataBase {
             throw new Error(error.message || error.sqlMessage)
         }
     }
+    public findRecipeById = async (id: string): Promise<Recipe> => {
+        try {
+         const recipe = await BaseDataBase.connection("cookenu_recipes")
+         .select("*")
+         .where({id})
+         return recipe[0] && Recipe.toRecipeModel(recipe[0])
+            
+        } catch (error:any) {
+            throw new Error(error.message || error.sqlMessage)
+        }
+    }
+    public getRecipeById = async(id:string):Promise<Recipe[]> => {
+        try {
+         const recipe = await BaseDataBase.connection("cookenu_recipes")
+         .select("*")
+         .where({id})
+ 
+         return recipe.map((recipe => Recipe.toRecipeModel(recipe)))
+            
+        } catch (error:any) {
+         throw new Error(error.message || error.sqlMessage)
+        }
+     }
 }

@@ -1,9 +1,10 @@
+import moment from "moment"
 export class Recipe {
     constructor(
         private id: string,
         private titulo: string,
         private descricao: string,
-        private data_de_criacao: Date
+        private data_de_criacao: any
     ){}
 
     public getId(){
@@ -23,7 +24,7 @@ export class Recipe {
             data.id,
             data.titulo,
             data.descricao,
-            data.data_de_criacao,
+            moment(data.data_de_criacao, "YYYY-MM-DD").format("DD/MM/YYYY")
         )
     }
 }
