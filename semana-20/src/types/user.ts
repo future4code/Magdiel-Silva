@@ -7,14 +7,17 @@ export type authenticationData = {
     role: USER_ROLES
  }
  
- export type user = {
-    id: string,
-    name: string,
-    nickname: string,
-    email: string,
-    password: string,
-    role: USER_ROLES
+ export interface user extends userInput {
+    id: string
  }
+
+ export interface userInput{
+   name: string,
+   email: string,
+   password: string,
+   role: USER_ROLES
+}
+
  
  export type login = {
     email:string,
