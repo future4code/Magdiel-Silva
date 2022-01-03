@@ -14,4 +14,13 @@ export class UserController {
              res.status(400).send(error.message || error.sqlMessage)
          }
     }
+    loginController = async (req:Request, res: Response) => {
+        try {
+            
+        } catch (error: any) {
+            res.status(400).send(error.message || error.sqlMessage)
+        }
+
+
+    }
 }
