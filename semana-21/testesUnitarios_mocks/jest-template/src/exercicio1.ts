@@ -17,7 +17,7 @@ export const validateCharacter = (input:Character): boolean => {
     ){
         return false
     } else {
-        true
+        return true
     }
 
 }

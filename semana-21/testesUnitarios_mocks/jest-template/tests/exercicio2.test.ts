@@ -56,7 +56,7 @@ test("Should return true for validate informations", ()=> {
         name:"Magdiel",
         life: 500,
         strength: 1000,
-        defense: 0
+        defense: 100
     });
     expect(result).toBe(true)
 })
