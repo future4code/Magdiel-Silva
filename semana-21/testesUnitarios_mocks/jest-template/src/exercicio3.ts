@@ -19,7 +19,7 @@ export const performAttackInjected = (attacker:Character, defender:Character, va
         const difference = attacker.strength - defender.defense
         defender.life -= difference 
     }
-
 }
+//c) o parâmetro validator realiza uma inversão de dependência na função  performAttackInjected
 
 
