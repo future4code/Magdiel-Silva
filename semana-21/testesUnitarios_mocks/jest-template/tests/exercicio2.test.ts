@@ -1,5 +1,5 @@
 import { validateCharacter } from "../src/exercicio1"
-
+//exercicio2
 //a)
 test("Should return false for empty name", ()=> {
     const result = validateCharacter({
