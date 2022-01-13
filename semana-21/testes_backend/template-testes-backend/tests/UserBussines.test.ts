@@ -101,3 +101,18 @@ describe("teste de login",()=>{
 
 
 })
+
+describe("getUserById", ()=>{
+    
+    test("Erro de usuário não existente", async ()=>{
+        expect.assertions(2)
+        try {
+            await userBussinesMock.getUserById("id")
+        } catch (error) {
+            expect(error.statusCode).toBe(404)
+            expect(error.message).toBe("Usuário não encontrado")
+        }
+    })
+    
+
+})

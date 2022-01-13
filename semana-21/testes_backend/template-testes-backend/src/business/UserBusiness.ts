@@ -92,7 +92,7 @@ export class UserBusiness {
    public async getUserById(id:string) {
       const user = await this.userDatabase.getUserById(id)
       if(!user) {
-         throw new Error("Usuário não encontrado")
+         throw new CustomError(404,"Usuário não encontrado")
       }
       return{
          id: user.getId(),
