@@ -31,7 +31,7 @@
   "scripts": {
     "test": "jest",
     "migrations":"clear && ts-node-dev ./src/data/migrations.ts",
-    "start":"ts-node ./src/index.ts"
+    "dev":"clear && ts-node-dev ./src/index.ts"
   },
   "keywords": [],
   "author": "",
