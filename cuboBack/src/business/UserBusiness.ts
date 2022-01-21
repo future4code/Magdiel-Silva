@@ -18,4 +18,8 @@ export class UserBusiness{
         const result = await new UserData().insertUser(user)
         return result
     }
+    getAllUserBusiness = async() => {
+        const result = await new UserData().getAllUser()
+        return result
+    }
 }

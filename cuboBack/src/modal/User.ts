@@ -6,9 +6,10 @@ export class User{
         private participation: string
     ){}
 
-
+    static userModel (user:User){
+        return new User(user.id, user.firstName, user.lastName, user.participation)
+    }
 }
-
 export interface UserInput{
     firstName: string,
     lastName: string,
