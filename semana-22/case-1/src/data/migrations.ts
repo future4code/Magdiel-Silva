@@ -1,11 +1,10 @@
-import { connection } from "./connection";
 
 const printError = (error:any) => {
     console.log(error.sqlMessage || error.message)
 }
 
 const createTables = async() => {
-    await connection
+    await BaseDataBase
     .raw(
         `
         CREATE TABLE IF NOT EXISTS dog_walking(
@@ -28,7 +27,7 @@ const createTables = async() => {
     .catch(printError)
 }
 const closeConnection = () => {
-    connection.destroy()
+    BaseDataBase.destroy()
 }
 createTables()
 .finally(closeConnection)
