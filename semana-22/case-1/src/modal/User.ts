@@ -34,7 +34,7 @@ export enum TOUR_DURATION {
 export interface UserInput {
     name: string,
     email: string,
-    data_passeio: string,
+    data_passeio: Date | string,
     duracao:TOUR_DURATION,
     latitude: number,
     longitude: number,

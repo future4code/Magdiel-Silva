@@ -9,7 +9,7 @@ class Migrations extends BaseDataBase {
             id VARCHAR(255) PRIMARY KEY NOT NULL,
             name VARCHAR(255) NOT NULL,
             email VARCHAR(255) UNIQUE NOT NULL,
-            data_passeio VARCHAR(255) NOT NULL,
+            data_passeio DATE NOT NULL,
             duracao VARCHAR(255) NOT NULL,
             latitude VARCHAR(255) NOT NULL,
             longitude VARCHAR(255) NOT NULL,

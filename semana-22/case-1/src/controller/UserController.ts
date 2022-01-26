@@ -15,7 +15,7 @@ export class UserController {
               longitude,
               horario_inicio,
               horario_termino
-          }  
+          }
 
           const message = await new UserBusiness().signUpBusiness(input)
           res.status(201).send({message})

@@ -25,7 +25,8 @@ export class UserBusiness {
 
         const user:UserInsert = {
             id: new IdGenerator().generate(),
-            ...input
+            ...input,
+            data_passeio:input.data_passeio.toString().slice(0, 10),
         }
 
         const result = await new UserDataBase().insertUser(user)
