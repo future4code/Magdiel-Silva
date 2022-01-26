@@ -3,12 +3,12 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-export class BasedataBase {
+export class BaseDataBase {
    private static connection: Knex | null = null
 
    protected getConnection = (): Knex =>{
-      if(!BasedataBase.connection){
-         BasedataBase.connection = knex({
+      if(!BaseDataBase.connection){
+         BaseDataBase.connection = knex({
             client: 'mysql',
                connection: {
                host: process.env.DB_HOST,
@@ -18,9 +18,15 @@ export class BasedataBase {
                port: 3306,
                multipleStatements: true
             }
-
          })
       }
-      return BasedataBase.connection
+      return BaseDataBase.connection
+   }
+
+   public static destroyConnection = async():Promise <void> => {
+      if(BaseDataBase.connection){
+         await BaseDataBase.connection.destroy();
+         BaseDataBase.connection = null;
+      }
    }
 }
