@@ -1,0 +1,19 @@
+{
+  "name": "estrutura_dados",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.5.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "exercicio1": "clear && tsnd --transpile-only --ignore-watch node_modules ./src/exercicio1.ts",
+    "exercicio2": "clear && tsnd --transpile-only --ignore-watch node_modules ./src/exercicio2.ts",
+    "exercicio3": "clear && tsnd --transpile-only --ignore-watch node_modules ./src/exercicio3.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
