@@ -17,11 +17,11 @@ export class UserBusiness {
                 throw new MissingFields()
             }
 
-        if((input.horario_termino - input.horario_inicio) !== 30 || 
-            (input.horario_termino - input.horario_inicio) !== 60) {
-            throw new Error("Insira um horario com intervalo de 30 ou 60 minutos")
-        }
-        // pergunta para o plantão: Como ajustar a validação do horário?
+        // if((input.horario_termino - input.horario_inicio) !== 30 || 
+        //     (input.horario_termino - input.horario_inicio) !== 60) {
+        //     throw new Error("Insira um horario com intervalo de 30 ou 60 minutos")
+        // }
+        // // pergunta para o plantão: Como ajustar a validação do horário?
 
         const user:UserInsert = {
             id: new IdGenerator().generate(),
