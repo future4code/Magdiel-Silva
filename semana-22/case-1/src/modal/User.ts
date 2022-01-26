@@ -5,12 +5,11 @@ export enum TOUR_DURATION {
 
 }
 export interface UserInput {
+    name: string,
+    email: string,
     data_passeio: string,
-    preco: number,
-    duracao: TOUR_DURATION,
     latitude: number,
     longitude: number,
-    pets: string[],
     horario_inicio: number,
     horario_termino: number
 }
