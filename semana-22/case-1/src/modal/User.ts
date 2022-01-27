@@ -38,8 +38,8 @@ export interface UserInput {
     duracao:TOUR_DURATION,
     latitude: number,
     longitude: number,
-    horario_inicio: number,
-    horario_termino: number
+    horario_inicio: string,
+    horario_termino: string
 }
 
 
