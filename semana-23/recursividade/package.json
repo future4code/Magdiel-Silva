@@ -7,7 +7,7 @@
     "exercicio1":"tsc --outFile exercicio1.js exercicio1.ts && node exercicio1.js",
     "exercicio2":"tsc --outFile exercicio2.js exercicio2.ts && node exercicio2.js",
     "exercicio3":"tsc --outFile exercicio3.js exercicio3.ts && node exercicio3.js",
-    "exercicio4":"tsc --outFile exercicio3.js exercicio3.ts && node exercicio3.js"
+    "exercicio4":"tsc --outFile exercicio4.js exercicio4.ts && node exercicio4.js"
   },
   "keywords": [],
   "author": "",
